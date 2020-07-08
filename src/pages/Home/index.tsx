@@ -1,6 +1,13 @@
 import React from "react";
 import { Feather as Icon } from "@expo/vector-icons";
-import { ImageBackground, View, Image, Text, StyleSheet } from "react-native";
+import {
+  ImageBackground,
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
@@ -41,6 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 32,
+    paddingTop: Math.round(Dimensions.get("screen").height) * 0.1,
   },
 
   main: {

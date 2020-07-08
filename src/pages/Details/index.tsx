@@ -1,31 +1,12 @@
 import React from "react";
-import {
-  View,
-  TouchableOpacity,
-  Image,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-} from "react-native";
-import Constants from "expo-constants";
+import { View, Image, Text, SafeAreaView, StyleSheet } from "react-native";
 import { Feather as Icon, FontAwesome } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
 import { RectButton } from "react-native-gesture-handler";
 
 const Details = () => {
-  const navigation = useNavigation();
-
-  function handleNavigateBack() {
-    navigation.goBack();
-  }
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <TouchableOpacity onPress={handleNavigateBack}>
-          <Icon name="arrow-left" size={20} color="#34cb79" />
-        </TouchableOpacity>
-
         <Image
           style={styles.pointImage}
           source={{
