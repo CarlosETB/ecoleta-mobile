@@ -2,7 +2,7 @@
 import { StyleSheet } from "react-native";
 
 // Shared
-import { color } from "../shared/color";
+import { color } from "~/shared/color";
 
 const styles: any = StyleSheet.create({
   headerStyle: {
@@ -13,7 +13,7 @@ const styles: any = StyleSheet.create({
     paddingHorizontal: 32,
   },
   cardStyle: {
-    backgroundColor: "#f0f0f5",
+    backgroundColor: color.secondary,
   },
 });
 

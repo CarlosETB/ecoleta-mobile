@@ -1,26 +1,30 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react'
 
-import Home from "../pages/Home";
-import Points from "../pages/Points";
-import Details from "../pages/Details";
+// Native
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
-import BackButton from "../components/BackButton";
+// Pages
+import Home from '~/pages/Home'
+import Points from '~/pages/Points'
+import Details from '~/pages/Details'
+
+//Components
+import BackButton from '~/components/BackButton'
 
 // Private
-import styles from "../routes/styles";
+import styles from './styles'
 
-const AppStack = createStackNavigator();
+const AppStack = createStackNavigator()
 
 const screenOptions = {
-  title: "",
+  title: '',
   headerTransparent: true,
   cardStyle: styles.cardStyle,
   headerStyle: styles.headerStyle,
   headerLeft: () => <BackButton />,
-  headerLeftContainerStyle: styles.headerLeftContainerStyle,
-};
+  headerLeftContainerStyle: styles.headerLeftContainerStyle
+}
 
 const Routes = () => {
   return (
@@ -35,7 +39,7 @@ const Routes = () => {
         <AppStack.Screen name="Details" component={Details} />
       </AppStack.Navigator>
     </NavigationContainer>
-  );
-};
+  )
+}
 
-export default Routes;
+export default Routes

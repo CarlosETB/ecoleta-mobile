@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import {
   View,
   TouchableOpacity,
@@ -7,100 +7,108 @@ import {
   Image,
   SafeAreaView,
   Alert,
-  Dimensions,
-  StyleSheet,
-} from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import MapView, { Marker } from "react-native-maps";
-import { SvgUri } from "react-native-svg";
-import api from "../../services/api";
-import * as Location from "expo-location";
+  StyleSheet
+} from 'react-native'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import MapView, { Marker } from 'react-native-maps'
+import { SvgUri } from 'react-native-svg'
+import api from '~/services/api'
+import * as Location from 'expo-location'
+import { Container } from '~/shared/styles'
 
 interface Item {
-  id: number;
-  title: string;
-  image_url: string;
+  id: number
+  title: string
+  image_url: string
 }
 
 interface Point {
-  id: number;
-  name: string;
-  image: string;
-  latitude: number;
-  longitude: number;
+  id: number
+  name: string
+  image: string
+  latitude: number
+  longitude: number
+}
+
+interface Params {
+  uf: string
+  city: string
 }
 
 const Points = () => {
-  const [items, setItems] = useState<Item[]>([]);
-  const [points, setPoints] = useState<Point[]>([]);
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [items, setItems] = useState<Item[]>([])
+  const [points, setPoints] = useState<Point[]>([])
+  const [selectedItems, setSelectedItems] = useState<number[]>([])
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
     0,
-    0,
-  ]);
+    0
+  ])
 
-  const navigation = useNavigation();
+  const navigation = useNavigation()
+  const route = useRoute()
+
+  const routeParams = route.params as Params
 
   useEffect(() => {
     async function loadPosition() {
-      const { status } = await Location.requestPermissionsAsync();
+      const { status } = await Location.requestPermissionsAsync()
 
-      if (status !== "granted") {
+      if (status !== 'granted') {
         Alert.alert(
-          "Alerta",
-          "Precisamos de sua permissão para obter a localização"
-        );
-        return;
+          'Alerta',
+          'Precisamos de sua permissão para obter a localização'
+        )
+        return
       }
 
-      const location = await Location.getCurrentPositionAsync();
+      const location = await Location.getCurrentPositionAsync()
 
-      const { latitude, longitude } = location.coords;
-      setInitialPosition([latitude, longitude]);
+      const { latitude, longitude } = location.coords
+      setInitialPosition([latitude, longitude])
     }
 
-    loadPosition();
-  }, []);
+    loadPosition()
+  }, [])
 
   useEffect(() => {
-    api.get("items").then((response) => {
-      setItems(response.data);
-    });
-  }, []);
+    api.get('items').then(response => {
+      setItems(response.data)
+    })
+  }, [])
 
   useEffect(() => {
     api
-      .get("/points", {
+      .get('/points', {
         params: {
-          city: "Paulínia",
-          uf: "SP",
-          items: [1],
-        },
+          city: routeParams.city,
+          uf: routeParams.uf,
+          items: selectedItems
+        }
       })
-      .then((response) => {
-        setPoints(response.data);
-      });
-  }, [selectedItems]);
+      .then(response => {
+        setPoints(response.data)
+      })
+  }, [selectedItems])
 
-  function handleNavigateToDetail() {
-    navigation.navigate("Details");
+  function handleNavigateToDetail(id: number) {
+    navigation.navigate('Details', { point_id: id })
   }
 
   function handleSelectItem(id: number) {
-    const alreadySelected = selectedItems.findIndex((item) => item === id);
+    const alreadySelected = selectedItems.findIndex(item => item === id)
 
     if (alreadySelected >= 0) {
-      const filteredItems = selectedItems.filter((item) => item !== id);
+      const filteredItems = selectedItems.filter(item => item !== id)
 
-      setSelectedItems(filteredItems);
+      setSelectedItems(filteredItems)
     } else {
-      setSelectedItems([...selectedItems, id]);
+      setSelectedItems([...selectedItems, id])
     }
   }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
+      <Container>
         <Text style={styles.title}>Bem vindo.</Text>
         <Text style={styles.description}>
           Encontre no mapa um ponto de coleta.
@@ -114,19 +122,17 @@ const Points = () => {
                 latitude: initialPosition[0],
                 longitude: initialPosition[1],
                 latitudeDelta: 0.014,
-                longitudeDelta: 0.014,
-              }}
-            >
-              {points.map((point) => (
+                longitudeDelta: 0.014
+              }}>
+              {points.map(point => (
                 <Marker
                   key={String(point.id)}
                   style={styles.mapMarker}
-                  onPress={handleNavigateToDetail}
+                  onPress={() => handleNavigateToDetail(point.id)}
                   coordinate={{
                     latitude: point.latitude,
-                    longitude: point.longitude,
-                  }}
-                >
+                    longitude: point.longitude
+                  }}>
                   <View style={styles.mapMarkerContainer}>
                     <Image
                       style={styles.mapMarkerImage}
@@ -139,24 +145,43 @@ const Points = () => {
             </MapView>
           )}
         </View>
-      </View>
+      </Container>
 
       <View style={styles.itemsContainer}>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: 20 }}
-        >
-          {items.map((item) => (
+          contentContainerStyle={{
+            height: 150,
+            width: '100%',
+            backgroundColor: 'red',
+            paddingHorizontal: 20
+          }}>
+          {points.map(point => (
+            <TouchableOpacity
+              activeOpacity={0.6}
+              style={styles.item}
+              key={String(point.id)}
+              onPress={() => handleNavigateToDetail(point.id)}>
+              <Image style={styles.pointImage} source={{ uri: point.image }} />
+              <Text style={styles.itemTitle}>{point.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingHorizontal: 20 }}>
+          {items.map(item => (
             <TouchableOpacity
               activeOpacity={0.6}
               style={[
                 styles.item,
-                selectedItems.includes(item.id) && styles.selectedItem,
+                selectedItems.includes(item.id) && styles.selectedItem
               ]}
               key={String(item.id)}
-              onPress={() => handleSelectItem(item.id)}
-            >
+              onPress={() => handleSelectItem(item.id)}>
               <SvgUri width={42} height={42} uri={item.image_url} />
               <Text style={styles.itemTitle}>{item.title}</Text>
             </TouchableOpacity>
@@ -164,81 +189,82 @@ const Points = () => {
         </ScrollView>
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 32,
-    paddingTop: Math.round(Dimensions.get("screen").height) * 0.1,
-  },
-
   title: {
     fontSize: 20,
-    fontFamily: "Ubuntu_700Bold",
-    marginTop: 24,
+    fontFamily: 'Ubuntu_700Bold',
+    marginTop: 24
+  },
+  pointImage: {
+    width: '100%',
+    height: 60,
+    resizeMode: 'cover',
+    borderRadius: 10,
+    backgroundColor: 'red'
   },
 
   description: {
-    color: "#6C6C80",
+    color: '#6C6C80',
     fontSize: 16,
     marginTop: 4,
-    fontFamily: "Roboto_400Regular",
+    fontFamily: 'Roboto_400Regular'
   },
 
   mapContainer: {
     flex: 1,
-    width: "100%",
+    width: '100%',
     borderRadius: 10,
-    overflow: "hidden",
-    marginTop: 16,
+    overflow: 'hidden',
+    marginTop: 16
   },
 
   map: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%'
   },
 
   mapMarker: {
     width: 90,
-    height: 80,
+    height: 80
   },
 
   mapMarkerContainer: {
     width: 90,
     height: 70,
-    backgroundColor: "#34CB79",
-    flexDirection: "column",
+    backgroundColor: '#34CB79',
+    flexDirection: 'column',
     borderRadius: 8,
-    overflow: "hidden",
-    alignItems: "center",
+    overflow: 'hidden',
+    alignItems: 'center'
   },
 
   mapMarkerImage: {
     width: 90,
     height: 45,
-    resizeMode: "cover",
+    resizeMode: 'cover'
   },
 
   mapMarkerTitle: {
     flex: 1,
-    fontFamily: "Roboto_400Regular",
-    color: "#FFF",
+    fontFamily: 'Roboto_400Regular',
+    color: '#FFF',
     fontSize: 13,
-    lineHeight: 23,
+    lineHeight: 23
   },
 
   itemsContainer: {
-    flexDirection: "row",
+    flexDirection: 'column',
     marginTop: 16,
-    marginBottom: 32,
+    marginBottom: 32
   },
 
   item: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     borderWidth: 2,
-    borderColor: "#eee",
+    borderColor: '#eee',
     height: 120,
     width: 120,
     borderRadius: 8,
@@ -246,22 +272,22 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 16,
     marginRight: 8,
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: 'center',
+    justifyContent: 'space-between',
 
-    textAlign: "center",
+    textAlign: 'center'
   },
 
   selectedItem: {
-    borderColor: "#34CB79",
-    borderWidth: 2,
+    borderColor: '#34CB79',
+    borderWidth: 2
   },
 
   itemTitle: {
-    fontFamily: "Roboto_400Regular",
-    textAlign: "center",
-    fontSize: 13,
-  },
-});
+    fontFamily: 'Roboto_400Regular',
+    textAlign: 'center',
+    fontSize: 13
+  }
+})
 
-export default Points;
+export default Points
