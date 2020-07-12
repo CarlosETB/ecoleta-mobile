@@ -1,5 +1,4 @@
-# ecoleta-mobile
-
+# Ecoleta (Mobile)
 
 <!-- PROJECT SHIELDS -->
 
