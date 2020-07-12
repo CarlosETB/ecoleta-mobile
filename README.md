@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 
 <p align="center">
-    <img height="250px" src="https://i.imgur.com/XPQWFy6.png" alt="Logo">
+    <img src="https://i.imgur.com/XPQWFy6.png" alt="Logo">
 </p>
 
 <br />
