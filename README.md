@@ -2,15 +2,21 @@
 
 <!-- PROJECT SHIELDS -->
 
-[![npm](https://img.shields.io/npm/v/ecoleta-mobile.svg?label=npm%20package)](https://www.npmjs.com/package/ecoleta-mobile)
-[![npm](https://img.shields.io/npm/dt/ecoleta-mobile.svg)](https://www.npmjs.com/package/ecoleta-mobile)
 [![GitHub issues](https://img.shields.io/github/issues-raw/CarlosETB/ecoleta-mobile.svg)](https://github.com/CarlosETB/ecoleta-mobile/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/CarlosETB/ecoleta-mobile.svg)](https://github.com/CarlosETB/ecoleta-mobile/commits/master)
-[![NPM](https://img.shields.io/npm/l/ecoleta-mobile.svg)](https://choosealicense.com/licenses/mit/)
+
 
 <div align="center">
 
-![GitHub issues][github_issues_badge] ![GitHub][repository_license_badge] ![Node_Badge][node_version_badge] ![Npm_Badge][npm_version_badge] ![React_Badge][web_react_badge] ![React_Native_Badge][mobile_react-native_badge] ![NodeJS_Badge][server_nodejs_badge] [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
+[![GitHub issues][github_issues_badge]]
+[![GitHub][repository_license_badge]]
+
+[![Node_Badge][node_version_badge]]
+[![Npm_Badge][npm_version_badge]]
+[![React_Badge][web_react_badge]]
+[![React_Native_Badge][mobile_react-native_badge]]
+[![NodeJS_Badge][server_nodejs_badge]]
+[![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
   <a href="https://rocketseat.com.br">
     <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%237519C1">
   </a>
