@@ -36,7 +36,7 @@
 
 ## Sobre o Projeto
 
-Um template com o objetivo de acelerar o processo de criação de um projeto, disponibilizando ferramentas como styled-components e absolute path ja configuradas e uma estrutura de projeto bem definida.
+O projeto tem como finalidade **estabelecer uma conexão** entre **empresas e/ou entidades que coletam resíduos** (orgânicos e inorgânicos) **às pessoas e/ou entidades que necessitam constantemente descartar esses resíduos**. Solucionando um grande problema recorrente que é o **descarte inadequado do lixo**, facilitando o processo de recliclagem e reutilização. Se tratando essa da versão **Mobile** do projeto.
 
 <br />
 
@@ -44,19 +44,11 @@ Um template com o objetivo de acelerar o processo de criação de um projeto, di
 
 ## Utilizando
 
-Antes de usar em algum projeto, se atente às informações abaixo:
-
-### Instalação
-
-1. Para instalar e utilizar esse template o processo é bem simples, basta criar um projeto novo utilizando o comando:
+Para iniciar o servidor
 
 ```sh
-    react-native init Example --template tea-template
+    expo start
 ```
-
-2. Depois do projeto criado você pode deletar o arquivo `App.js` da raiz, pois o arquivo `index.js` agora aponta para a pasta **src**.
-
-Com isso o projeto será criado com todas as dependências do template devidamente instaladas e linkadas, tal como os arquivos de configuração que são copiados para o projeto.
 
 <br />
 
