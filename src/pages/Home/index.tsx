@@ -20,9 +20,6 @@ import axios from 'axios'
 import { Container } from '~/shared/styles'
 import * as Img from '~/shared/images'
 
-// Private
-import { Dropdown } from './styles'
-
 interface IBGEUFResponse {
   sigla: string
 }
@@ -174,7 +171,7 @@ const styles = StyleSheet.create({
   select: {},
 
   inputView: {
-    borderRadius: 15,
+    borderRadius: 10,
     backgroundColor: '#FFF',
     marginBottom: 8
   },

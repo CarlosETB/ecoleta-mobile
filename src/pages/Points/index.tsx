@@ -28,6 +28,7 @@ interface Point {
   image: string
   latitude: number
   longitude: number
+  image_url: string
 }
 
 interface Params {
@@ -136,7 +137,7 @@ const Points = () => {
                   <View style={styles.mapMarkerContainer}>
                     <Image
                       style={styles.mapMarkerImage}
-                      source={{ uri: point.image }}
+                      source={{ uri: point.image_url }}
                     />
                     <Text style={styles.mapMarkerTitle}>{point.name}</Text>
                   </View>
@@ -148,27 +149,6 @@ const Points = () => {
       </Container>
 
       <View style={styles.itemsContainer}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{
-            height: 150,
-            width: '100%',
-            backgroundColor: 'red',
-            paddingHorizontal: 20
-          }}>
-          {points.map(point => (
-            <TouchableOpacity
-              activeOpacity={0.6}
-              style={styles.item}
-              key={String(point.id)}
-              onPress={() => handleNavigateToDetail(point.id)}>
-              <Image style={styles.pointImage} source={{ uri: point.image }} />
-              <Text style={styles.itemTitle}>{point.name}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}

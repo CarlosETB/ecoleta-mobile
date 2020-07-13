@@ -5,15 +5,14 @@
 [![GitHub issues](https://img.shields.io/github/issues-raw/CarlosETB/ecoleta-mobile.svg)](https://github.com/CarlosETB/ecoleta-mobile/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/CarlosETB/ecoleta-mobile.svg)](https://github.com/CarlosETB/ecoleta-mobile/commits/master)
 [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
-  <a href="https://rocketseat.com.br">
-    <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%237519C1">
-  </a>
-
+<a href="https://rocketseat.com.br">
+<img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%237519C1">
+</a>
 
 <!-- PROJECT LOGO -->
 
 <p align="center">
-    <img src="https://i.imgur.com/XPQWFy6.png" alt="Logo">
+    <img height="200px" src='./assets/logo.svg' alt="Logo">
 </p>
 
 <br />
@@ -26,7 +25,6 @@
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Utilizando](#utilizando)
 - [Licença](#licen%C3%A7a)
-
 
 <br />
 
