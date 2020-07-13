@@ -57,7 +57,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Expo](https://expo.io/)
 - [JavaScript](https://www.javascript.com/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [React-Native](https://reactnative.dev/)
+- [React - Native](https://reactnative.dev/)
 
 <br />
 
