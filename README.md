@@ -55,9 +55,9 @@ Para iniciar o servidor
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Expo](https://expo.io/)
-- [React-Native](https://reactnative.dev/)
 - [JavaScript](https://www.javascript.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [React-Native](https://reactnative.dev/)
 
 <br />
 
