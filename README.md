@@ -4,10 +4,11 @@
 
 [![GitHub issues](https://img.shields.io/github/issues-raw/CarlosETB/ecoleta-mobile.svg)](https://github.com/CarlosETB/ecoleta-mobile/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/CarlosETB/ecoleta-mobile.svg)](https://github.com/CarlosETB/ecoleta-mobile/commits/master)
-[![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
-<a href="https://rocketseat.com.br">
-<img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%237519C1">
-</a>
+![GitHub language count](https://img.shields.io/github/languages/count/CarlosETB/ecoleta-api?color=%2304D361)
+![GitHub repository size](https://img.shields.io/github/repo-size/CarlosETB/ecoleta-api)
+[![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)](https://github.com/CarlosETB/typescript-badges/)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen)](https://github.com/CarlosETB/ecoleta-mobile/stargazers)
+[![Made by Rocketseat](https://img.shields.io/badge/made%20by-Rocketseat-%237519C1)](https://rocketseat.com.br/)
 
 <!-- PROJECT LOGO -->
 
@@ -24,6 +25,7 @@
 - [Tabela de Conteúdo](#tabela-de-conte%C3%BAdo)
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Utilizando](#utilizando)
+- [Tecnologias](#tecnologias)
 - [Licença](#licen%C3%A7a)
 
 <br />
@@ -45,6 +47,17 @@ Para iniciar o servidor
 ```sh
     expo start
 ```
+
+<br />
+
+## Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Expo](https://expo.io/)
+- [React-Native](https://reactnative.dev/)
+- [JavaScript](https://www.javascript.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 <br />
 
