@@ -6,7 +6,6 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/CarlosETB/ecoleta-mobile.svg)](https://github.com/CarlosETB/ecoleta-mobile/commits/master)
 ![GitHub language count](https://img.shields.io/github/languages/count/CarlosETB/ecoleta-api?color=%2304D361)
 ![GitHub repository size](https://img.shields.io/github/repo-size/CarlosETB/ecoleta-api)
-[![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)](https://github.com/CarlosETB/typescript-badges/)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)](https://github.com/CarlosETB/ecoleta-mobile/stargazers)
 [![Made by Rocketseat](https://img.shields.io/badge/made%20by-Rocketseat-%237519C1)](https://rocketseat.com.br/)
 
@@ -54,10 +53,20 @@ Para iniciar o servidor
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Expo](https://expo.io/)
-- [JavaScript](https://www.javascript.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [React - Native](https://reactnative.dev/)
+- **[Expo](https://expo.io/)**
+- **[JavaScript](https://www.javascript.com/)**
+- **[TypeScript](https://www.typescriptlang.org/)**
+- **[React - Native](https://reactnative.dev/)**
+- **[Expo Google Fonts](https://github.com/expo/google-fonts)**
+- **[React Navigation](https://reactnavigation.org/)**
+- **[React Native Maps](https://github.com/react-native-community/react-native-maps)**
+- **[Expo Constants](https://docs.expo.io/versions/latest/sdk/constants/)**
+- **[React Native SVG](https://github.com/react-native-community/react-native-svg)**
+- **[Axios](https://github.com/axios/axios)**
+- **[Expo Location](https://docs.expo.io/versions/latest/sdk/location/)**
+- **[Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)**
+
+ \* Veja o arquivo <kbd>[package.json](./package.json)</kbd>
 
 <br />
 
